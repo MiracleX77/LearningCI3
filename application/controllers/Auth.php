@@ -40,7 +40,7 @@ class Auth extends CI_Controller {
     public function getMemberById()
 	{
 		$data["query"] = $this->member_model->get_entryById();
-        $this->load->view('search_view',$data);
+        $this->load->view('search_view',$dataa);
 	}
 
 }

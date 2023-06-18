@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<th>username</th>
 						<th>password</th>
 						<th>datesave</th>
+						<th>action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,6 +35,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $data_member->m_username;?></td>
 						<td><?php echo $data_member->m_password;?></td>
 						<td><?php echo $data_member->m_datesave;?></td>
+						<td>
+							<button type="submit" class="btn btn-outline-danger" onclick="deleteMember('1')">delete</button>
+							<button type="submit" class="btn btn-outline-success">edit</button>
+						</td>
 					</tr>
 					<?php } ?>
 				</tbody>
@@ -41,7 +46,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 </div>
-
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+	function deleteMember(m_id) {
+	console.log(m_id);
+		axios.post('<?php echo site_url('home/deleteMemberById'); ?>', {m_id})
+			.then(function(response) {
+				console.log(response.data);
+			})
+			.catch(function(error) {
+				console.error(error);
+			});
+	}
+	</script>
 
 </body>
 </html>

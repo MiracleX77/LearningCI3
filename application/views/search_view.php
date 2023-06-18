@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-md-7">
 						<h4> Search Member<h4>
-						<form method="post" action="<?php echo site_url('auth/getMemberById');?>" class="form-horizontal">
+						<form method="post" action="<?php echo site_url('home/getMemberById');?>" class="form-horizontal">
 							<div class="form-group row">
 								<div class="col-sm-2 control-label">ID</div>
 								<div class = "col-sm-7">

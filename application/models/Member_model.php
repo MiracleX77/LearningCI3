@@ -27,7 +27,11 @@ class Member_model extends CI_Model {
 			'm_password' => $this->input->post('m_password'),
 		);
 		$query = $this->db->insert('tbl_member',$data);
+    }
 
+    public function delete_entry(){
+        $id = $this->input->post('m_id');
+        $this->db->delete('tbl_member',array('m_id'=>$id));
     }
 
 }

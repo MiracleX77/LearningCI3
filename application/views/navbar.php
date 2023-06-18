@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a class="nav-link" href="<?php echo site_url('auth/viewLogin');?>">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo site_url('auth/viewSearch');?>">Search</a>
+					<a class="nav-link" href="<?php echo site_url('home/viewSearch');?>">Search</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link disabled" href="#">Disabled</a>

@@ -14,16 +14,13 @@ class Auth extends CI_Controller {
     public function viewLogin()
 	{
 		$this->load->view('login_view');
-
 	}
+
 	public function viewRegister()
 	{
 		$this->load->view('register_view');
 	}
-    public function viewSearch(){
-        $data["query"] = null;
-        $this->load->view('search_view',$data);
-    }
+
     
     public function userLogin()
 	{
@@ -37,10 +34,5 @@ class Auth extends CI_Controller {
 		$this->member_model->insert_entry();
 	}
 
-    public function getMemberById()
-	{
-		$data["query"] = $this->member_model->get_entryById();
-        $this->load->view('search_view',$data);
-	}
-
+    
 }

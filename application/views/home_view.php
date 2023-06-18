@@ -24,7 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<th>username</th>
 						<th>password</th>
 						<th>datesave</th>
-						<th>action</th>
+						<th>edit</th>
+						<th>delete</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -35,10 +37,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?php echo $data_member->m_username;?></td>
 						<td><?php echo $data_member->m_password;?></td>
 						<td><?php echo $data_member->m_datesave;?></td>
-						<td>
-							<button type="submit" class="btn btn-outline-danger" onclick="deleteMember('1')">delete</button>
-							<button type="submit" class="btn btn-outline-success">edit</button>
-						</td>
+						<td><a href="<?php echo site_url('home/viewEdit/').$data_member->m_id;?>" class="btn btn-outline-warning" role="button" >edit</a></td>
+						<td><a href="<?php echo site_url('home/deleteMemberById/').$data_member->m_id;?>" class="btn btn-outline-danger" role="button" onclick="return confirm('confirm ?');">delete</a></td>
 					</tr>
 					<?php } ?>
 				</tbody>
@@ -46,10 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 </div>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script>
 	function deleteMember(m_id) {
-	console.log(m_id);
 		axios.post('<?php echo site_url('home/deleteMemberById'); ?>', {m_id})
 			.then(function(response) {
 				console.log(response.data);
@@ -58,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				console.error(error);
 			});
 	}
-	</script>
+	</script> -->
 
 </body>
 </html>

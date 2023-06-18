@@ -29,9 +29,15 @@ class Auth extends CI_Controller {
 		echo '</pre>';
 	}
 
+	/********************************
+	 * Method: POST
+	 * Param: m_username,m_password,m_name
+	 * Return: true ? false
+	 ********************************/
 	public function userRegister()
 	{
 		$this->member_model->insert_entry();
+		redirect('','refresh');
 	}
 
     

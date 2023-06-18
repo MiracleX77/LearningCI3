@@ -15,13 +15,45 @@ class Home extends CI_Controller {
         $data["query"] = null;
         $this->load->view('search_view',$data);
     }
+	/********************************
+	 * Method: url/:m_id
+	 * Param: m_id
+	 * Return: view
+	 ********************************/
+	public function viewEdit($m_id){
+        $data["query"] = $this->member_model->get_entryById($m_id);
+        $this->load->view('edit_view',$data);
+    }
+	/********************************
+	 * Method: POST
+	 * Param: m_id
+	 * Return: data ? false
+	 ********************************/
 	public function getMemberById()
-	{
-		$data["query"] = $this->member_model->get_entryById();
+	{	
+		$m_id = $this->input->post('m_id');
+		$data["query"] = $this->member_model->get_entryById($m_id);
         $this->load->view('search_view',$data);
 	}
-		public function deleteMemberById()
+	/********************************
+	 * Method: url/:m_id
+	 * Param: m_id
+	 * Return: data ? false
+	 ********************************/
+	public function deleteMemberById($m_id)
 	{
-		$this->member_model->delete_entry();
+		$this->member_model->delete_entryById($m_id);
+		redirect('','refresh');
 	}
+	/********************************
+	 * Method: POST
+	 * Param: m_id,m_username,m_password,m_name
+	 * Return: true ? false
+	 ********************************/
+	public function editMember()
+	{
+		$this->member_model->update_entry();
+		redirect('','refresh');
+	}
+
 }
